@@ -1,0 +1,18 @@
+{% extends 'calc/base.html' %}
+{% block content %}
+{% if messages %}
+     {% for message in messages %}
+          <li>{{ message }}</li>
+     {% endfor %}
+{% endif %}
+<h5>{{nums.num_1}}{{nums.minus}}{{nums.num_2}}=</h5>
+     <form method="POST">
+     {% csrf_token %}
+          <label for="result">Result: </label>
+          <input type="text" name="result"><br>
+          <input type="submit" value="Submit">
+     </form>
+     <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: {{nums.result}}%"></div>
+     </div>
+{% endblock %}
